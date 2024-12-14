@@ -1,0 +1,18 @@
+name: Check Code Format
+on: [pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  golangci:
+    name: gofmt
+    runs-on: ubuntu-latest
+    env:
+      BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
+    steps:
+      - uses: actions/checkout@v4
+      - uses: Jerome1337/gofmt-action@v1.0.5
+        with:
+          gofmt-path: ./${{ env.BRANCH_NAME }}
+          gofmt-flags: '-l -d'
