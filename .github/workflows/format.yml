@@ -13,5 +13,5 @@ jobs:
     steps:
       - uses: Jerome1337/gofmt-action@v1.0.5
         with:
-          gofmt-path: ${{ env.BRANCH_NAME }}
+          gofmt-path: ./${{ env.BRANCH_NAME }}
           gofmt-flags: '-l -d'
