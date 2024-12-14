@@ -8,6 +8,6 @@ package helloworld
 
 func sayHelloWorld() string {
 	// TODO: решить задачу
-	return ""
+	return "Hello, World!"
 }
 
