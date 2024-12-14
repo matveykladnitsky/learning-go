@@ -6,7 +6,7 @@ package helloworld
 */
 
 
-func sayHelloWorld() string {
+func sayHelloWorld(count int) string {
 	// TODO: решить задачу
 	return "Hello, World!"
 }
