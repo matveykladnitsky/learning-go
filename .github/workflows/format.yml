@@ -11,6 +11,7 @@ jobs:
     env:
       BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
     steps:
+      - uses: actions/checkout@v4
       - uses: Jerome1337/gofmt-action@v1.0.5
         with:
           gofmt-path: ./${{ env.BRANCH_NAME }}
