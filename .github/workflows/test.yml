@@ -5,7 +5,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      FOLDER_NAME: ${{ github.event.head_commit.message }}
+      COMMIT_NAME: ${{ github.event.head_commit.message }}
+      BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
     steps:
       - uses: actions/checkout@v4
       - name: Setup Go
@@ -18,7 +19,7 @@ jobs:
       #   run: go build -v ./...
       - name: Switch to folder
         run: |
-          echo ${{ env.FOLDER_NAME }}
-          cd ${{ env.FOLDER_NAME }}
+          echo ${{ env.BRANCH_NAME }}
+          cd ${{ env.BRANCH_NAME }}
       - name: Test with the Go CLI
         run: go test -v
