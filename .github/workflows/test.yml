@@ -1,0 +1,22 @@
+name: Test Task
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      FOLDER_NAME: ${{ github.event.head_commit.message }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.21.x'
+      # - name: Install dependencies
+      #   run: go get .
+      # - name: Build
+      #   run: go build -v ./...
+      - name: Switch to folder
+        run: cd $FOLDER_NAME
+      - name: Test with the Go CLI
+        run: go test -v
