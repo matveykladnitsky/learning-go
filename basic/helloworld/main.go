@@ -5,9 +5,7 @@ package helloworld
 - написать программу, которая возвращает "Hello, World!"
 */
 
-
 func sayHelloWorld() string {
 	// TODO: решить задачу
 	return "Hello, World!"
 }
-
