@@ -17,6 +17,8 @@ jobs:
       # - name: Build
       #   run: go build -v ./...
       - name: Switch to folder
-        run: cd $FOLDER_NAME
+        run: |
+          echo ${{ env.FOLDER_NAME }}
+          cd ${{ env.FOLDER_NAME }}
       - name: Test with the Go CLI
         run: go test -v
